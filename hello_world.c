@@ -2,6 +2,6 @@
 #include<stdio.h>
 void main()
 {
-printf("My name is Aman Thapa");
+printf("My name is Aman Thapa. \n");
 }
 //no changes
