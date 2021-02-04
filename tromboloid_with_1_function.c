@@ -6,7 +6,7 @@ int main()
 	float vol, h, d, b;
 	printf("Input the values of h, d, b respectively: \n");
 	scanf("%f%f%f", &h, &d, &b);
-	vol = 1/3((h*b*d) + (d/b))
-	printf("Volume of the tromboloid is: %f", vol);
+	vol = ((h*b*d) + (d/b)) * 1/3;
+	printf("Volume of the tromboloid is: %0.4f\n", vol);
 	return 0;
 }
