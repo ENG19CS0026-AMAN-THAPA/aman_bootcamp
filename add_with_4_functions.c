@@ -14,7 +14,7 @@ int add(int a, int b)
 }
 void show(int c, int d, int sum)
 {
-    printf("Sum of entered numbers is : %d", sum);
+    printf("Sum of %d and %d is : %d", sum);
 }
 int main()
 {
