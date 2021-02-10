@@ -4,7 +4,6 @@
 float input()
 {
     float x;
-    printf("Enter value: \n");
     scanf("%f", &x);
     return x;
 }
@@ -19,8 +18,11 @@ void show(float v1, float v2, float v3, float vol)
 int main()
 {
     float n1, n2, n3, result;
+    printf("Enter the value of h: ");
     n1 = input();
+    printf("Enter the value of d: ");
     n2 = input();
+    printf("Enter the value of b: ");
     n3 = input();
     result = volume(n1, n2, n3);
     show(n1, n2, n3, result);
