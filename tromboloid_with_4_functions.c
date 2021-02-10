@@ -13,7 +13,7 @@ float volume(float h, float d, float b)
 }
 void show(float v1, float v2, float v3, float vol)
 {
-    printf("Volume of tromboloid is : %f", vol);
+    printf("Volume of tromboloid with h = %f, d = %f and b = %f is : %f", vol);
 }
 int main()
 {
