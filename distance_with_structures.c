@@ -7,25 +7,25 @@ struct Points
 {
 	float x, y;
 };
-float distance(struct Points x2, struct Points x1, struct Points y2, struct Points y1)
+float distance(struct Points a, struct Points b)
 {
 	float d;
-	d = ((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+	d = ((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
 	return(sqrt(d));
 }
 int main()
 {
-	struct Points x2, x1, y2, y1;
+	struct Points a, b;
 	printf("\nEnter coordinates of first point: \n");
 	printf("Enter the value of x1: ");
-	scanf("%f", &x1);
+	scanf("%f", &a.x);
 	printf("Enter the value of x2: ");
-	scanf("%f", &x2);
+	scanf("%f", &a.y);
 	printf("\nEnter coordinates of second point: \n");
 	printf("Enter the value of y1: ");
-	scanf("%f", &y1);
+	scanf("%f", &b.x);
 	printf("Enter the value of y2: ");
-	scanf("%f", &y2);
-	printf(\nDistance between two points is: %0.4f\n", distance(x2, x1, y2, y1));
+	scanf("%f", &b.y);
+	printf("\nDistance between two points is: %0.4f\n", distance(a, b));
 	return 0;
 }
