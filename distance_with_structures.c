@@ -1,31 +1,45 @@
 //WAP to find the distance between two points using structures and 4 functions.
 
 #include<stdio.h>
-#include<stdlib.h>
 #include<math.h>
 struct Points
 {
-	float x, y;
+	float i;
 };
-float distance(struct Points a, struct Points b)
+float input()
 {
-	float d;
-	d = ((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
+    struct Points a;
+    scanf("%f", &a.i);
+    return a.i;
+}
+float distance(float x1, float x2, float y1, float y2)
+{
+    float x, y, d;
+    x = pow((x1 - x2), 2);
+    y = pow((y1 - y2), 2);
+    d = x + y;
 	return(sqrt(d));
+}
+void show(float dis)
+{
+    printf("Distance between the points is: %0.4f", dis);
 }
 int main()
 {
-	struct Points a, b;
+	
+    float x1, x2, y1, y2, result;
 	printf("\nEnter coordinates of first point: \n");
 	printf("Enter the value of x1: ");
-	scanf("%f", &a.x);
-	printf("Enter the value of x2: ");
-	scanf("%f", &a.y);
-	printf("\nEnter coordinates of second point: \n");
+	x1 = input();
 	printf("Enter the value of y1: ");
-	scanf("%f", &b.x);
+	y1 = input();
+	printf("\nEnter coordinates of second point: \n");
+	printf("Enter the value of x2: ");
+	x2 = input();
 	printf("Enter the value of y2: ");
-	scanf("%f", &b.y);
-	printf("\nDistance between two points is: %0.4f\n", distance(a, b));
+	y2 = input();
+    result = distance(x1, x2, y1, y2);
+    show(result);
 	return 0;
 }
+
