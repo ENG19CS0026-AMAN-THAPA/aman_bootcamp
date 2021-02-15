@@ -3,8 +3,8 @@
 #include<stdio.h>
 struct fract
 {
-    int num, deno, x, y;
-};
+    int num, deno;
+}x, y;
 int input1()
 {
     printf("Enter numerator of fraction 1: ");
@@ -15,9 +15,9 @@ int input1()
 int input2()
 {
     printf("Enter numerator of fraction 2: ");
-    scanf("%d", &x.num);
+    scanf("%d", &y.num);
     printf("Enter denominator of fraction 2: ");
-    scanf("%d", &x.deno);
+    scanf("%d", &y.deno);
 }
 int gcd_calc()
 {
@@ -29,6 +29,7 @@ int gcd_calc()
         if(a%i==0 && b%i == 0)
         gcd = i;
     }
+    printf("%d/%d + %d/%d\n", x.num, x.deno, y.num, y.deno);
     printf("The added fraction is %d/%d", a/gcd, b/gcd); 
 }
 int main()
