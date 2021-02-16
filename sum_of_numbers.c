@@ -1,7 +1,7 @@
 //Write a program to find the sum of n different numbers using 4 functions
 
 #include<stdio.h>
-int a, coun, sum;
+int a[100], coun, sum=0;
 int input(int coun)
 {
 	int i;
@@ -24,12 +24,12 @@ int count_no()
 }
 int display()
 {
-	printf("The sum of the given number is: %d", sum);
+	printf("The sum of the given numbers is: %d", sum);
 }
 int main()
 {
 	int x, y;
-	d = count_no();
-	b = input(d);
-	display(b);
+	x = count_no();
+	y = input(x);
+	display(y);
 }
