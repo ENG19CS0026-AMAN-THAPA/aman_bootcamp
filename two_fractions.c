@@ -1,40 +1,49 @@
 //WAP to find the sum of two fractions.
 
 #include<stdio.h>
+void disp(int, int);
 struct fract
+{ 	
+int num, denom;
+};
+typedef struct fract fr;
+fr input()
 {
-    int num, deno;
-}x, y;
-int input1()
-{
-    printf("Enter numerator of fraction 1: ");
-    scanf("%d", &x.num);
-    printf("Enter the denominator of fraction 1: ");
-    scanf("%d", &x.deno);
+	fr x;
+	printf("Enter numerator of the fraction: ");
+	scanf("%d", &x.num);
+	printf("Enter denominator of the fraction: ");
+	scanf("%d", &x.denom);
+	printf("The entered fraction is: %d/%d\n", x.num, x.denom);
+	return (x);
 }
-int input2()
+
+int sumf(int a, int b, int c, int d)
 {
-    printf("Enter numerator of fraction 2: ");
-    scanf("%d", &y.num);
-    printf("Enter denominator of fraction 2: ");
-    scanf("%d", &y.deno);
+int i, x, y, gcd, sum;
+x = (a*d) + (c*b);
+y = b*d;
+	for(int i=1; i<=x && i<=y; i++)
+	{
+		if((x%i==0)&&(y%i == 0))
+			gcd = i;
+	}
+	x = x/gcd; y = y/gcd;
+	disp(x,y);
 }
-int gcd_calc()
+void disp(int x, int y)
 {
-    int gcd, a, b, i;
-    a = (x.num*y.deno) + (y.num*x.deno);
-    b = x.deno*y.deno;
-    for(i=1; i<=a && i<=b; i++)
-    {
-        if(a%i==0 && b%i == 0)
-        gcd = i;
-    }
-    printf("%d/%d + %d/%d\n", x.num, x.deno, y.num, y.deno);
-    printf("The added fraction is %d/%d", a/gcd, b/gcd); 
+    printf("The sum of entered fractions is %d/%d",x,y);
 }
+
 int main()
 {
-    input1();
-    input2();
-    gcd_calc();
+	fr o,t;
+	int sum;
+	printf("FRACTION 1 -\n");
+    	o = input();
+   	printf("FRACTION 2 -\n");
+	t = input();
+	sum = sumf(o.num, o.denom, t.num, t.denom);
+	return 0;
 }
