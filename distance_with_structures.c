@@ -28,7 +28,7 @@ int main()
 	xco = pow((p1.x - p2.x),2);
 	yco = pow((p1.y- p2.y),2);
 	dis = sqrt(xco+yco);
-	display(distance);
+	display(dis);
 	return 0;
 }
 
