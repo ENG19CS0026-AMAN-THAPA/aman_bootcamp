@@ -21,24 +21,58 @@ FRACT input()
 FRACT add(FRACT fr1, FRACT fr2)
 {
 	FRACT res;
+	res.num = (fr1.num * fr2.deno) + (fr2.num * fr1.deno);
 	res.deno = fr1.deno * fr2.deno;
-	res.num = (fr1.num * fr2.deno) + (fr2.num * fr1.num);
 	return res;
 }
 
-FRACT display(FRACT fr)
+int gcd(int num, int deno)
 {
-	printf("The answer is: %d%d", fr.num, fr.deno);
+	if(num == 0)
+	return deno;
+	return gcd(deno%num, num);
+}
+
+FRACT lowest_form(FRACT fr)
+{
+	int value = gcd(fr.num, fr.deno);
+	fr.num/=value;
+	fr.deno/=value;
+	return fr;
+}
+
+FRACT total(FRACT arr[], int n)
+{
+	FRACT t;
+	t.num = 0;
+	t.deno = 1;
+	for(int i = 0; i<n; i++)
+		t = add(t, arr[i]);
+	t = lowest_form(t);
+	return t;
+}
+
+FRACT display(FRACT res)
+{
+	printf("The answer is: %d/%d", res.num, res.deno);
 }
 
 int main()
 {
 	int n;
 	FRACT result;
+	FRACT arr[100];
 	printf("Enter the number of fractions: ");
 	scanf("%d", &n);
-	if (n==1)
-		result = input();
-	
+	if(n == 1)
+	{
+		display(input());
+		return 0;
+	}
+	for(int i = 0; i<n; i++)
+		arr[i] = input();
+	result = total(arr, n);
+	display(result);
 	return 0;
 }
+
