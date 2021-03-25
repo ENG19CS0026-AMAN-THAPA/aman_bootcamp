@@ -1,21 +1,22 @@
 //WAP to find the sum of two fractions.
 
 #include<stdio.h>
-void disp(int, int);
 struct fract
 { 	
-int num, denom;
+int num;
+int deno;
 };
-typedef struct fract fr;
-fr input()
+typedef struct fract FRACT;
+
+FRACT input()
 {
-	fr x;
+	FRACT fr;
 	printf("Enter numerator of the fraction: ");
-	scanf("%d", &x.num);
+	scanf("%d", &fr.num);
 	printf("Enter denominator of the fraction: ");
-	scanf("%d", &x.denom);
-	printf("The entered fraction is: %d/%d\n", x.num, x.denom);
-	return (x);
+	scanf("%d", &fr.deno);
+	printf("The entered fraction is: %d/%d\n", fr.num, fr.deno);
+	return fr;
 }
 
 int sumf(int a, int b, int c, int d)
@@ -33,17 +34,17 @@ y = b*d;
 }
 void disp(int x, int y)
 {
-    printf("The sum of entered fractions is %d/%d",x,y);
+    printf("The sum of entered fractions is %d/%d", x, y);
 }
 
 int main()
 {
-	fr o,t;
+	FRACT o, t;
 	int sum;
 	printf("FRACTION 1 -\n");
     	o = input();
    	printf("FRACTION 2 -\n");
 	t = input();
-	sum = sumf(o.num, o.denom, t.num, t.denom);
+	sum = sumf(o.num, o.deno, t.num, t.deno);
 	return 0;
 }
