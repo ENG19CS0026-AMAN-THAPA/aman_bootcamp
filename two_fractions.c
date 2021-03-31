@@ -1,50 +1,61 @@
 //WAP to find the sum of two fractions.
 
 #include<stdio.h>
-struct fract
-{ 	
+struct st
+{
 int num;
 int deno;
 };
-typedef struct fract FRACT;
 
-FRACT input()
+typedef struct st fraction;
+
+fraction input_frac ()
 {
-	FRACT fr;
-	printf("Enter numerator of the fraction: ");
-	scanf("%d", &fr.num);
-	printf("Enter denominator of the fraction: ");
-	scanf("%d", &fr.deno);
-	printf("The entered fraction is: %d/%d\n", fr.num, fr.deno);
-	return fr;
+fraction f;
+printf ("Enter the numerator:\n");
+scanf ("%d", &f.num);
+printf ("Enter the denominator:\n");
+scanf ("%d", &f.deno);
+return f;
 }
 
-int sumf(int a, int b, int c, int d)
+int gcd (int num, int deno)
 {
-int i, x, y, gcd, sum;
-x = (a*d) + (c*b);
-y = b*d;
-	for(int i=1; i<=x && i<=y; i++)
-	{
-		if((x%i==0)&&(y%i == 0))
-			gcd = i;
-	}
-	x = x/gcd; y = y/gcd;
-	disp(x,y);
+if (num == 0)
+return deno;
+return gcd (deno % num, num);
 }
-void disp(int x, int y)
+
+fraction lowest_term (fraction f, int div)
 {
-    printf("The sum of entered fractions is %d/%d", x, y);
+f.num = f.num / div;
+f.deno = f.deno / div;
+return f;
+}
+
+fraction addition (fraction f1, fraction f2)
+{
+fraction res;
+res.deno = f1.deno * f2.deno;
+res.num = (f1.num * f2.deno) + (f2.num * f1.deno);
+int div = gcd (res.num, res.deno);
+res = lowest_term (res, div);
+return res;
+}
+
+void output (fraction f1, fraction f2, fraction res)
+{
+printf ("The sum of fractions %d/%d and %d/%d is: %d/%d\n", f1.num,
+	  f1.deno, f2.num, f2.deno, res.num, res.deno);
 }
 
 int main()
 {
-	FRACT o, t;
-	int sum;
-	printf("FRACTION 1 -\n");
-    	o = input();
-   	printf("FRACTION 2 -\n");
-	t = input();
-	sum = sumf(o.num, o.deno, t.num, t.deno);
-	return 0;
+fraction a, b, c;
+a = input_frac ();
+b = input_frac ();
+c = addition (a, b);
+output (a, b, c);
+return 0;
 }
+
